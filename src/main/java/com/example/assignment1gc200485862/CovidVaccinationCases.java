@@ -7,12 +7,22 @@ public class CovidVaccinationCases {
     private int unVaccinatedCases;
     private int partialVaccinatedCases;
     private int vaccinatedCases;
+    private int totalNumbOfCases;
 
-    public CovidVaccinationCases(Date date, int unVaccinatedCases, int partialVaccinatedCases, int vaccinatedCases) {
+    public CovidVaccinationCases(Date date, int unVaccinatedCases, int partialVaccinatedCases, int vaccinatedCases, int totalNumbOfCases) {
         this.date = date;
-        this.unVaccinatedCases = unVaccinatedCases;
-        this.partialVaccinatedCases = partialVaccinatedCases;
-        this.vaccinatedCases = vaccinatedCases;
+        setUnVaccinatedCases(unVaccinatedCases);
+        setPartialVaccinatedCases(partialVaccinatedCases);
+        setVaccinatedCases(vaccinatedCases);
+        setTotalNumbOfCases(totalNumbOfCases);
+    }
+
+    public int getTotalNumbOfCases() {
+        return totalNumbOfCases;
+    }
+
+    public void setTotalNumbOfCases(int totalNumbOfCases) {
+        this.totalNumbOfCases = totalNumbOfCases;
     }
 
     public Date getDate() {
