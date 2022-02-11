@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1gc200485862.CovidVaccinationCasesController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1gc200485862.CovidVaccinationCasesController">
    <children>
       <BorderPane layoutX="51.0" layoutY="35.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -26,6 +28,16 @@
          <top>
             <Label text="COVID Vaccination Cases Based on Vaccination Status in Canada" BorderPane.alignment="CENTER" />
          </top>
+         <bottom>
+            <AnchorPane prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <RadioButton layoutY="5.0" mnemonicParsing="false" text="All Records" />
+                  <RadioButton layoutX="109.0" layoutY="5.0" mnemonicParsing="false" text="Year 2021" />
+                  <RadioButton layoutX="217.0" layoutY="4.0" mnemonicParsing="false" text="Year 2022" />
+                  <Button layoutX="420.0" layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Text may change according to active view" />
+               </children>
+            </AnchorPane>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
