@@ -5,8 +5,10 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1gc200485862.CovidVaccinationCasesController">
    <children>
@@ -25,19 +27,28 @@
                </columnResizePolicy>
             </TableView>
          </center>
-         <top>
-            <Label text="COVID Vaccination Cases Based on Vaccination Status in Canada" BorderPane.alignment="CENTER" />
-         </top>
          <bottom>
             <AnchorPane prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <RadioButton layoutY="5.0" mnemonicParsing="false" text="All Records" />
-                  <RadioButton layoutX="109.0" layoutY="5.0" mnemonicParsing="false" text="Year 2021" />
-                  <RadioButton layoutX="217.0" layoutY="4.0" mnemonicParsing="false" text="Year 2022" />
-                  <Button layoutX="420.0" layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Text may change according to active view" />
+                  <RadioButton fx:id="allRecordsRadioBtn" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" text="All Records">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="yes" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="year21RadioBtn" layoutX="115.0" layoutY="10.0" mnemonicParsing="false" text="Year 2021" toggleGroup="$yes" />
+                  <RadioButton fx:id="year22RadioBtn" layoutX="223.0" layoutY="9.0" mnemonicParsing="false" text="Year 2022" toggleGroup="$yes" />
+                  <Button alignment="CENTER" layoutX="323.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" />
+                  <Label fx:id="totalRecordsLabel" layoutX="508.0" layoutY="9.0" prefHeight="17.0" prefWidth="227.0" wrapText="true" />
                </children>
             </AnchorPane>
          </bottom>
+         <top>
+            <VBox alignment="CENTER" prefHeight="72.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label contentDisplay="CENTER" text="COVID Vaccination Cases Based on Vaccination Status in Canada" textAlignment="CENTER" />
+                  <Label fx:id="selectionLabel" />
+               </children>
+            </VBox>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>
