@@ -10,17 +10,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1gc200485862.CovidVaccinationCasesController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1gc200485862.CovidVaccinationCasesController">
    <children>
       <BorderPane layoutX="51.0" layoutY="35.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <TableView fx:id="tableView" BorderPane.alignment="CENTER">
+            <TableView fx:id="tableView" stylesheets="@style.css" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
-                <TableColumn fx:id="unVaccinatedCasesColumn" prefWidth="75.0" text="No. of Unvaccinated" />
-                  <TableColumn fx:id="partialVaccinatedCasesColumn" prefWidth="75.0" text="No. of Partially Vaccinated" />
-                  <TableColumn fx:id="vaccinatedCasesColumn" prefWidth="75.0" text="No. of Vaccinated" />
-                  <TableColumn fx:id="totalNumbOfCasesColumn" prefWidth="75.0" text="Total No. of Cases" />
+                <TableColumn fx:id="dateColumn" prefWidth="103.3333410024643" text="Date" />
+                <TableColumn fx:id="unVaccinatedCasesColumn" prefWidth="195.99999237060547" text="No. of Unvaccinated" />
+                  <TableColumn fx:id="partialVaccinatedCasesColumn" minWidth="50.0" prefWidth="195.0" resizable="false" text="No. of Partially Vaccinated" />
+                  <TableColumn fx:id="vaccinatedCasesColumn" prefWidth="140.00003051757812" text="No. of Vaccinated" />
+                  <TableColumn fx:id="totalNumbOfCasesColumn" maxWidth="3000.0" prefWidth="10.0" text="Total Cases" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -28,21 +28,21 @@
             </TableView>
          </center>
          <bottom>
-            <AnchorPane prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="49.0" prefWidth="750.0" styleClass="panel" BorderPane.alignment="CENTER">
                <children>
-                  <RadioButton fx:id="allRecordsRadioBtn" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" text="All Records">
+                  <RadioButton fx:id="allRecordsRadioBtn" layoutX="6.0" layoutY="13.0" mnemonicParsing="false" text="All Records">
                      <toggleGroup>
                         <ToggleGroup fx:id="yes" />
                      </toggleGroup></RadioButton>
-                  <RadioButton fx:id="year21RadioBtn" layoutX="115.0" layoutY="10.0" mnemonicParsing="false" text="Year 2021" toggleGroup="$yes" />
-                  <RadioButton fx:id="year22RadioBtn" layoutX="223.0" layoutY="9.0" mnemonicParsing="false" text="Year 2022" toggleGroup="$yes" />
-                  <Button alignment="CENTER" layoutX="323.0" layoutY="6.0" mnemonicParsing="false" onAction="#loadChartView" prefHeight="25.0" prefWidth="141.0" text="Change to Chart View" />
-                  <Label fx:id="totalRecordsLabel" layoutX="508.0" layoutY="9.0" prefHeight="17.0" prefWidth="227.0" wrapText="true" />
+                  <RadioButton fx:id="year21RadioBtn" layoutX="115.0" layoutY="13.0" mnemonicParsing="false" text="Year 2021" toggleGroup="$yes" />
+                  <RadioButton fx:id="year22RadioBtn" layoutX="223.0" layoutY="12.0" mnemonicParsing="false" text="Year 2022" toggleGroup="$yes" />
+                  <Button alignment="CENTER" layoutX="323.0" layoutY="6.0" mnemonicParsing="false" onAction="#loadChartView" prefHeight="31.0" prefWidth="171.0" styleClass="button1" stylesheets="@style.css" text="Change to Chart View" />
+                  <Label fx:id="totalRecordsLabel" layoutX="508.0" layoutY="15.0" prefHeight="17.0" prefWidth="227.0" wrapText="true" />
                </children>
             </AnchorPane>
          </bottom>
          <top>
-            <VBox alignment="CENTER" prefHeight="72.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="72.0" prefWidth="750.0" styleClass="table-view" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
                   <Label contentDisplay="CENTER" text="COVID Vaccination Cases Based on Vaccination Status in Canada" textAlignment="CENTER" />
                   <Label fx:id="selectionLabel" />
