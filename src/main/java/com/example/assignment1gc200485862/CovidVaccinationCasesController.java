@@ -2,18 +2,20 @@ package com.example.assignment1gc200485862;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class CovidVaccinationCasesController implements Initializable {
-
+    //this flag will be used for the chart to populate according to the filteration critera
     @FXML
     private TableView<CovidVaccinationCases> tableView;
 
@@ -52,15 +54,22 @@ public class CovidVaccinationCasesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date")); //here it actually uses the get method of this variable
         unVaccinatedCasesColumn.setCellValueFactory(new PropertyValueFactory<>("unVaccinatedCases"));
         partialVaccinatedCasesColumn.setCellValueFactory(new PropertyValueFactory<>("partialVaccinatedCases"));
         vaccinatedCasesColumn.setCellValueFactory(new PropertyValueFactory<>("vaccinatedCases"));
         totalNumbOfCasesColumn.setCellValueFactory(new PropertyValueFactory<>("totalNumbOfCases"));
-//        allRecordsRadioBtn.setSelected(true);
-//        tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(1)));
-//        totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
+       //the following line gets the data from database according to the right sql statement, the parameter chartYear is to retrieve the
+        //right data after being loaded from the chart view.
+        tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(DBUtility.chartYear), DBUtility.chartYear));
+        if(DBUtility.chartYear ==1)
+            allRecordsRadioBtn.setSelected(true);
+        else if(DBUtility.chartYear ==2)
+            year21RadioBtn.setSelected(true);
+        else if(DBUtility.chartYear ==3)
+            year22RadioBtn.setSelected(true);
+
+        totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
 
         yes.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
         {
@@ -68,36 +77,37 @@ public class CovidVaccinationCasesController implements Initializable {
             Toggle o, Toggle n)
 
             {
-
                 if(allRecordsRadioBtn.isSelected()) {
-                    tableView.getItems().removeAll();
+                    tableView.getItems().clear();
                     selectionLabel.setText("All Records are Shown");
-                    tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(1)));
+                    tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(1), DBUtility.chartYear));
                     totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
-
                 }
-
                  if(year21RadioBtn.isSelected())
                 {
-                    tableView.getItems().removeAll();
+                    //this line resets the tableview
+                    tableView.getItems().clear();
                     selectionLabel.setText("Year 2021 Data Only");
-                    tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(2)));
+                    tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(2), DBUtility.chartYear));
                     totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
-                    tableView.refresh();
                 }
                 else if(year22RadioBtn.isSelected())
                 {
-                    tableView.getItems().removeAll();
+                    tableView.getItems().clear();
                     selectionLabel.setText("Year 2022 Data Only");
-                    tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(3)));
+                    tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(3), DBUtility.chartYear));
                     totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
                 }
 
             }
         });
+        }//end of initialize()
+    @FXML
+    private void loadChartView(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "covidVaccinationCasesChartView.fxml");
 
 
-        }
+    }
 
 
 

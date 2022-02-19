@@ -36,7 +36,7 @@
                      </toggleGroup></RadioButton>
                   <RadioButton fx:id="year21RadioBtn" layoutX="115.0" layoutY="10.0" mnemonicParsing="false" text="Year 2021" toggleGroup="$yes" />
                   <RadioButton fx:id="year22RadioBtn" layoutX="223.0" layoutY="9.0" mnemonicParsing="false" text="Year 2022" toggleGroup="$yes" />
-                  <Button alignment="CENTER" layoutX="323.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" />
+                  <Button alignment="CENTER" layoutX="323.0" layoutY="6.0" mnemonicParsing="false" onAction="#loadChartView" prefHeight="25.0" prefWidth="141.0" text="Change to Chart View" />
                   <Label fx:id="totalRecordsLabel" layoutX="508.0" layoutY="9.0" prefHeight="17.0" prefWidth="227.0" wrapText="true" />
                </children>
             </AnchorPane>
