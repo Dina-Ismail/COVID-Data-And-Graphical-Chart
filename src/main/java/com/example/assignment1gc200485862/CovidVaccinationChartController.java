@@ -45,6 +45,12 @@ public class CovidVaccinationChartController implements Initializable {
         else   if(DBUtility.chartYear == 3)
             chartYearLabel.setText("Chart Showing Year 2022 records");
     }
+
+    /** This method loads the table view and set chartYear variable to the corresponding
+     * year viewed by the user to reflect Data table
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void loadTableView(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "covidVaccinationCasesTableView.fxml");

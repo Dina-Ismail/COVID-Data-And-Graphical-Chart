@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneChanger {
+    // A class responsible for changing scenes between table view and chart view
     public static void changeScenes(ActionEvent event, String fxmlFileName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());

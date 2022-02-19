@@ -13,7 +13,7 @@ public class DBUtility {
     private static String connectURL = "jdbc:mysql://172.31.22.43:3306/Dina200485862";
     // this counter to get the number of records in the resultset
     public static int counter;
-    //this variable is for the chart to populate the right data according to the year filtration
+    //this variable is for the chart to populate the right data according to the year filtration and also used for the table data for same purpose
     public static int chartYear=1;
 
     /**
@@ -48,7 +48,7 @@ public class DBUtility {
         }
 
         return sql;
-    }
+    }//end of createSQLStatement()
 
     /**
      * This method returns all COVID Cases information from the DB in an ArrayList
@@ -102,7 +102,7 @@ public class DBUtility {
         }
         return vaccinatedCases;
 
-    }
+    }// end of getFullyVaccinatedSeries()
     /**
      * This method returns all unvaccinated Cases information from the DB in an ArrayList and creates
      * series for it on the chart
@@ -120,7 +120,7 @@ public class DBUtility {
         }
         return unVaccinatedCases;
 
-    }
+    } // end of getUnVaccinatedSeries()
     /**
      * This method returns all partial vaccination Cases information from the DB in an ArrayList and creates
      * series for it on the chart
@@ -138,7 +138,7 @@ public class DBUtility {
         }
         return partialVaccinatedCases;
 
-    }
+    } // end of getPartialVaccinatedSeries()
 }
 
 

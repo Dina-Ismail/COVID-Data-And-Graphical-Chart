@@ -62,6 +62,9 @@ public class CovidVaccinationCasesController implements Initializable {
        //the following line gets the data from database according to the right sql statement, the parameter chartYear is to retrieve the
         //right data after being loaded from the chart view.
         tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(DBUtility.chartYear), DBUtility.chartYear));
+        /* this if block is used when the user is returning from the Chart view to select the right radio button for the data
+        shown in the table
+         */
         if(DBUtility.chartYear ==1)
             allRecordsRadioBtn.setSelected(true);
         else if(DBUtility.chartYear ==2)
@@ -70,7 +73,7 @@ public class CovidVaccinationCasesController implements Initializable {
             year22RadioBtn.setSelected(true);
 
         totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
-
+        //Creating an event listener on the toggle group
         yes.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
         {
             public void changed(ObservableValue<? extends Toggle> ob,
@@ -98,17 +101,11 @@ public class CovidVaccinationCasesController implements Initializable {
                     tableView.getItems().addAll(DBUtility.getCasesFromDB( DBUtility.createSQLStatement(3), DBUtility.chartYear));
                     totalRecordsLabel.setText("Number of Records:" + DBUtility.counter);
                 }
-
             }
         });
         }//end of initialize()
     @FXML
     private void loadChartView(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "covidVaccinationCasesChartView.fxml");
-
-
     }
-
-
-
 }
